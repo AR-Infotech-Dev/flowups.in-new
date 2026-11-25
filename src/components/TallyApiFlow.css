@@ -1,0 +1,104 @@
+.tally-flow {
+  color: #eff7ff;
+}
+
+.tally-flow-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px 12px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #93b8df45;
+}
+
+.tally-flow-head strong {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tally-flow-head i { color: var(--flow-cyan); }
+.tally-flow-head > span { color: #bed4e7; font-size: .76rem; }
+
+.tally-flow-controls {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 7px;
+  margin: 14px 0;
+}
+
+.tally-flow-controls button {
+  min-height: 42px;
+  padding: 6px;
+  border: 1px solid #a3c9eb5a;
+  border-radius: 7px;
+  color: #eff7ff;
+  background: #081a3059;
+  font-size: clamp(.75rem, 1.25vw, .9rem);
+  font-weight: 750;
+}
+
+.tally-flow-controls button:hover { border-color: var(--flow-cyan); }
+.tally-flow-controls button[aria-pressed="true"] { color: #09243a; background: var(--flow-cyan); }
+
+.tally-flow-map {
+  --node-gap: clamp(16px, 3vw, 38px);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--node-gap);
+}
+
+.tally-flow-node {
+  position: relative;
+  display: grid;
+  min-height: 102px;
+  align-content: center;
+  justify-items: center;
+  padding: 7px 4px;
+  border: 1px solid #93b8df50;
+  border-radius: 10px;
+  background: #081a30a8;
+  text-align: center;
+}
+
+.tally-flow-node:nth-child(2) { border-color: #8bdcff9c; background: #143d67; }
+.tally-flow-icon { margin-bottom: 4px; color: var(--flow-cyan); font-size: 1.18rem; }
+.tally-flow-node strong { font-size: clamp(.7rem, 1.2vw, .95rem); line-height: 1.2; }
+.tally-flow-node small { margin-top: 5px; color: #c7d8e9; font-size: .67rem; line-height: 1.2; }
+
+.tally-flow-arrow {
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  width: var(--node-gap);
+  color: var(--flow-cyan);
+  font-size: clamp(.75rem, 1.6vw, 1.2rem);
+  line-height: 1;
+  transform: translateY(-50%);
+}
+
+.tally-flow-map--write .tally-flow-arrow { --flow-travel: -5px; }
+.tally-flow-map--read .tally-flow-arrow { --flow-travel: 5px; }
+
+.tally-flow-detail {
+  min-height: 6.2rem;
+  padding-top: 13px;
+}
+
+.tally-flow-detail strong { display: block; font-size: .9rem; line-height: 1.35; }
+.tally-flow-detail p { margin: 5px 0 0; color: #c7d8e9; font-size: .81rem; line-height: 1.45; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .tally-flow-arrow::before { animation: tally-data-pulse 650ms ease-out 2; }
+}
+
+@keyframes tally-data-pulse {
+  from { transform: translateX(var(--flow-travel)); opacity: .58; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@media (max-width: 575px) {
+  .tally-flow-node small { display: none; }
+  .tally-flow-node { min-height: 76px; }
+}

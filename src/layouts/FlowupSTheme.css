@@ -1,0 +1,79 @@
+
+#root {
+  --flow-ink: #10253c;
+  --flow-muted: #52657b;
+  --flow-blue: #075eaa;
+  --flow-line: #dce5ee;
+  --flow-navy: #081a30;
+  --flow-cyan: #8bdcff;
+  --flow-content-max: 1560px;
+  --flow-section-space: clamp(48px, 6vw, 96px);
+  --flow-title-size: clamp(2.4rem, 5.2vw, 4.7rem);
+  --flow-heading-size: clamp(1.8rem, 3.5vw, 3.15rem);
+  --flow-button-radius: 8px;
+  --flow-card-radius: 13px;
+}
+
+@media (min-width: 1200px) {
+  #root :is(.flow-header > .container-xl, .flow-home .container, .flow-footer > .container) {
+    width: min(var(--flow-content-max), calc(100% - 2 * clamp(36px, 4vw, 64px)));
+    max-width: none;
+    padding-inline: 0;
+  }
+}
+
+.flow-skip-link {
+  position: fixed;
+  z-index: 1050;
+  top: 10px;
+  left: 12px;
+  padding: 10px 16px;
+  border: 2px solid #081a30;
+  border-radius: var(--flow-button-radius);
+  color: #081a30;
+  background: var(--flow-cyan);
+  font-weight: 750;
+  transform: translateY(calc(-100% - 12px));
+}
+
+.flow-skip-link:focus {
+  color: #081a30;
+  transform: none;
+}
+
+.flow-main:focus {
+  outline: none;
+}
+
+#enquiry {
+  scroll-margin-top: 90px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:root { scroll-behavior: auto; }
+  .header.flow-header { transition: none; }
+}
+
+.header.flow-header .flow-brand,
+.flow-footer .flow-brand {
+  box-sizing: border-box;
+  width: fit-content;
+  max-width: 100%;
+  padding: 3px 8px 4px;
+  border-radius: 6px;
+  background: #fff;
+}
+
+.header.flow-header .flow-brand .flow-brand-image,
+.flow-footer .flow-brand-image {
+  display: block;
+  width: clamp(108px, 14vw, 142px);
+  max-width: 100%;
+  max-height: none;
+  height: auto;
+  margin: 0;
+}
+
+.flow-footer .flow-brand-image {
+  width: clamp(160px, 18vw, 206px);
+}

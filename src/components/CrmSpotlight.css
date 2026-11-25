@@ -1,0 +1,73 @@
+
+.crm-spotlight {
+  color: #f7faff;
+  background: radial-gradient(ellipse at 90% 35%, #143d67, transparent 65%), var(--flow-navy);
+  padding-block: var(--flow-section-space);
+  border-block: 1px solid #204564;
+}
+
+.crm-spotlight-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(24px, 5vw, 72px);
+}
+
+.flow-home .crm-spotlight h2 {
+  max-width: 16ch;
+  text-wrap: balance;
+}
+
+.crm-spotlight-description {
+  max-width: 56ch;
+  margin: 15px 0 21px;
+  color: #cfdeed;
+  line-height: 1.65;
+}
+
+.crm-workflow {
+  padding: clamp(12px, 2vw, 24px);
+  border: 1px solid #a3c9eb48;
+  border-radius: var(--flow-card-radius);
+  background: #102d4a;
+}
+
+.crm-workflow-controls {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 7px;
+}
+
+.crm-workflow-controls button {
+  min-height: 44px;
+  padding: 7px;
+  border: 1px solid #a3c9eb48;
+  border-radius: var(--flow-button-radius);
+  color: #f7faff;
+  background: var(--flow-navy);
+  font-size: .83rem;
+  font-weight: 750;
+}
+
+.crm-workflow-controls button[aria-pressed="true"] {
+  color: #09243a;
+  background: var(--flow-cyan);
+}
+
+.crm-workflow-detail {
+  min-height: 92px;
+  padding: 16px 0 0;
+}
+
+.crm-workflow-detail p {
+  margin: 6px 0 0;
+  color: #c1d1e4;
+}
+
+@media (max-width: 991px) {
+  .crm-spotlight-grid { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (max-width: 460px) {
+  .crm-workflow-controls { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
